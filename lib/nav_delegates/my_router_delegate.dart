@@ -65,6 +65,7 @@ class MyRouterDelegate extends RouterDelegate<MyConfiguration>
     }
 
     var flag = _navigatorKey.currentState.maybePop();
+    print('on android back button tap navigator pop flag $flag ');
 
     return flag;
   }
