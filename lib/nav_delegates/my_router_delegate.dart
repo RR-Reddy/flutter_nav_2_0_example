@@ -5,7 +5,7 @@ import '../page_one.dart';
 import '../page_two.dart';
 
 class MyRouterDelegate extends RouterDelegate<MyConfiguration>
-    with ChangeNotifier, PopNavigatorRouterDelegateMixin {
+    with ChangeNotifier {
   MyConfiguration _configuration;
   GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
@@ -57,5 +57,15 @@ class MyRouterDelegate extends RouterDelegate<MyConfiguration>
   }
 
   @override
-  GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
+  Future<bool> popRoute() async {
+    print('on android back button tap ');
+
+    if (true) {
+      throw 'some xyz exception';
+    }
+
+    var flag = _navigatorKey.currentState.maybePop();
+
+    return flag;
+  }
 }
